@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
+    diff-lcs (1.2.5)
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+    rspec-core (3.0.2)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.2)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.2)
+    timers (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  celluloid
+  rspec
