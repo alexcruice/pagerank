@@ -10,8 +10,8 @@ describe SimpleRank do
   let(:page1) { %w(ford car review) }
   let(:page2) { %w(toyota car) }
   let(:page3) { %w(car ford) }
-  let(:query1) { %w(fOrd Car) }
-  let(:query2) { %w(FORD revieW) }
+  let(:query1) { %w(ford car) }
+  let(:query2) { %w(ford review) }
   let(:max_keywords) { 8 }
 
   describe '#rank' do
