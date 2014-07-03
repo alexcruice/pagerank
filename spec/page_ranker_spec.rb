@@ -15,12 +15,27 @@ describe PageRanker do
     end
 
     it 'services queries' do
-      # lazy loading requires I add the pages again???
+      # lazy loading requires I add the pages again
       ranker.add_page(%w(Ford CAR rEview))
       ranker.add_page(%w(Toyota CAr))
       ranker.add_page(%w(Car fOrD CAR ford))
       expect(ranker.service_query(%w(Ford Car))).to eq('Q1: P1 P3 P2')
       expect(ranker.service_query(%w(Ford Review))).to eq('Q2: P1 P3')
+    end
+
+    it 'produces correct sample output' do
+      ranker.add_page(%w(Ford Car Review))
+      ranker.add_page(%w(Review Car))
+      ranker.add_page(%w(Review Ford))
+      ranker.add_page(%w(Toyota Car))
+      ranker.add_page(%w(Honda Car))
+      ranker.add_page(%w(Car))
+      expect(ranker.service_query(%w(Ford))).to eq('Q1: P1 P3')
+      expect(ranker.service_query(%w(Car))).to eq('Q2: P6 P1 P2 P4 P5')
+      expect(ranker.service_query(%w(Review))).to eq('Q3: P2 P3 P1')
+      expect(ranker.service_query(%w(Ford Review))).to eq('Q4: P3 P1 P2')
+      expect(ranker.service_query(%w(Ford Car))).to eq('Q5: P1 P3 P6 P2 P4')
+      expect(ranker.service_query(%w(cooking French))).to eq('Q6:')
     end
   end
 end
